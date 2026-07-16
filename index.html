@@ -92,8 +92,8 @@
     <div style="position: relative; padding-left: 34px; border-left: 3px solid #00693A;">
       <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
         <div style="position: relative; padding-bottom: 40px;">
-          <div style="{{ t.dotStyle }}"></div>
-          <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px; color: #B3272D; text-transform: uppercase;">{{ t.year }}</div>
+          <div style="position:absolute; left:-42px; top:4px; width:16px; height:16px; border-radius:50%; background:#00954A; border:3px solid #F3ECDA; box-shadow:0 0 0 2px #00693A;"></div>
+          <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px; color: #B3272D; text-transform: uppercase;">{{ t.displayDate }}</div>
           <div style="font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: #1C1B16;">{{ t.place }}</div>
         </div>
       </sc-for>
@@ -138,9 +138,13 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { stamped: false };
+  state = { stamped: false, now: new Date() };
 
   componentDidMount() {
+    this.timer = setInterval(() => {
+      this.setState({ now: new Date() });
+    }, 1000);
+
     this.reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (this.reduceMotion) {
       this.setState({ stamped: true });
@@ -166,6 +170,10 @@ class Component extends DCLogic {
     }
   }
 
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+
   renderVals() {
     const members = [
       { name: 'Änn', num: '001', rank: 'Gründungsmitglied', year: '2019' },
@@ -177,37 +185,30 @@ class Component extends DCLogic {
       { name: 'Andi', num: '007', rank: 'Mitglied', year: '2025' },
     ];
 
-    const dotStyle = 'position:absolute; left:-42px; top:4px; width:16px; height:16px; border-radius:50%; background:#00954A; border:3px solid #F3ECDA; box-shadow:0 0 0 2px #00693A;';
-    const timelineRaw = [
-      { year: '2022', place: 'Eriskirch' },
-      { year: '2023', place: 'Straßburg' },
-      { year: '2024', place: 'Freiburg' },
-      { year: '2025', place: 'Taubertal Festival' },
-      { year: '2026', place: 'Dublin' },
-    ];
-    const timeline = timelineRaw.map(t => ({ ...t, dotStyle }));
-
-    const locationsRaw = [
-      { label: '★ Zentrale — Ulm', x: 44, y: 34, main: true },
-      { label: 'Aichach', x: 64, y: 24 },
-      { label: 'Eriskirch', x: 34, y: 56 },
-      { label: 'Freiburg', x: 14, y: 48 },
-      { label: 'Ulm (Außenstelle)', x: 56, y: 52 },
-      { label: 'Zürich', x: 24, y: 76 },
-    ];
-    const locations = locationsRaw.map(l => ({
-      label: l.label,
-      pinStyle: `position:absolute; left:${l.x}%; top:${l.y}%; display:flex; align-items:center; gap:4px; transform:translate(-6px,-6px);`,
-      dotStyle: l.main
-        ? 'width:12px; height:12px; border-radius:2px; background:#B3272D; transform:rotate(45deg); flex-shrink:0;'
-        : 'width:9px; height:9px; border-radius:50%; background:#00693A; flex-shrink:0;',
-    }));
+    const timeline = [
+      { date: '2022-01-01T10:00:00', place: 'Eriskirch' },
+      { date: '2023-01-01T10:00:00', place: 'Straßburg' },
+      { date: '2024-01-01T10:00:00', place: 'Freiburg' },
+      { date: '2025-01-01T10:00:00', place: 'Taubertal Festival' },
+      { date: '2026-08-19T10:00:00', place: 'Dublin' },
+    ].map(t => {
+      const target = new Date(t.date);
+      const diff = target - this.state.now;
+      let displayDate = target.getFullYear().toString();
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        displayDate = `in ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+      return { ...t, displayDate };
+    });
 
     return {
       setRootRef: (el) => { this.root = el; },
       members,
       timeline,
-      locations,
       stampStyle: `display:inline-block; font-family:'Special Elite', monospace; font-size:15px; letter-spacing:3px; text-transform:uppercase; border:3px solid #B3272D; color:#B3272D; padding:8px 20px; transform:rotate(-10deg); mix-blend-mode:multiply; opacity:${this.state.stamped ? 1 : 0}; animation:${this.state.stamped ? 'stampBang .6s ease-out' : 'none'};`,
     };
   }
