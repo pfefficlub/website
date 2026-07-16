@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Impressum — Pfeffi Club</title>
+  <style>
+    :root {
+      --paper: #FBF8EF;
+      --ink: #1C1B16;
+      --pfeffi: #00693A;
+      --pfeffi-soft: rgba(0, 105, 58, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .stempel {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8125rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid var(--pfeffi);
+      color: var(--pfeffi);
+      padding: 0.25rem 0.75rem;
+      transform: rotate(-2deg);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 3px double var(--ink);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.125rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--pfeffi);
+      margin: 2.25rem 0 0.75rem;
+    }
+
+    section.karte {
+      background: #fff;
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--pfeffi-soft);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    address { font-style: normal; }
+
+    a {
+      color: var(--pfeffi);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+    a:hover { background: var(--pfeffi); color: var(--paper); }
+    a:focus-visible { outline: 3px solid var(--pfeffi); outline-offset: 2px; }
+
+    .hinweis {
+      font-size: 0.9375rem;
+      border-left: 4px solid var(--pfeffi);
+      padding-left: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--ink);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 2rem 1rem 3rem; }
+      section.karte { padding: 1.25rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="stempel">Amtliches Dokument</span>
+    <h1>Impressum</h1>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <section class="karte">
+      <address>
+        Klaus Happacher<br>
+        Augsburger Str. 11<br>
+        86551 Aichach<br>
+        Deutschland
+      </address>
+    </section>
+
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:kontakt@pfefficlub.de">kontakt@pfefficlub.de</a></p>
+
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>
+      Klaus Happacher<br>
+      Augsburger Str. 11<br>
+      86551 Aichach
+    </p>
+
+    <p class="hinweis">
+      Diese Website ist ein privates, nichtkommerzielles Projekt des Pfeffi Clubs.
+      Sie enthält keine Werbung und verfolgt keine wirtschaftlichen Zwecke.
+    </p>
+
+    <footer>
+      <span>Pfeffi Club · seit 2019</span>
+      <span><a href="datenschutz.html">Datenschutz</a> · <a href="index.html">Zurück zur Zentrale</a></span>
+    </footer>
+  </main>
+</body>
+</html>

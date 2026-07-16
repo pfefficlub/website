@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="./support.js"></script>
+<title>Pfeffi Club</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @keyframes stampBang {
+      0% { opacity: 0; transform: rotate(-14deg) scale(2.6); }
+      55% { opacity: 1; transform: rotate(-10deg) scale(0.92); }
+      75% { transform: rotate(-10deg) scale(1.06); }
+      100% { opacity: 1; transform: rotate(-10deg) scale(1); }
+    }
+    body { margin: 0; background: #F3ECDA; }
+    ::selection { background: #00954A; color: #F3ECDA; }
+    a { color: #00693A; }
+    a:hover { color: #00954A; }
+    :focus-visible { outline: 3px solid #B3272D; outline-offset: 2px; }
+  </style>
+</helmet>
+
+<div ref="{{ setRootRef }}" style="font-family: 'Archivo', sans-serif; color: #1C1B16; background: #F3ECDA; background-image: radial-gradient(circle, rgba(0,0,0,.035) 1px, transparent 1px); background-size: 4px 4px; line-height: 1.5; overflow-x: hidden;">
+
+  <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; padding: 14px 20px; background: rgba(243,236,218,0.92); backdrop-filter: blur(3px); border-bottom: 3px solid #00693A; font-family: 'Special Elite', monospace; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">
+    <a href="#statut" style="text-decoration: none; font-weight: 700;">Statut</a>
+    <a href="#kader" style="text-decoration: none; font-weight: 700;">Kader</a>
+    <a href="#chronik" style="text-decoration: none; font-weight: 700;">Chronik</a>
+    <a href="#standorte" style="text-decoration: none; font-weight: 700;">Standorte</a>
+  </nav>
+
+  <header style="position: relative; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px 40px; gap: 18px;">
+    <img src="assets/logo.svg" alt="Pfeffi Club Wappen" style="width: min(280px, 60vw); height: auto;" />
+    <h1 style="font-family: 'Anton', sans-serif; font-size: clamp(48px, 10vw, 128px); letter-spacing: 4px; margin: 0; color: #00693A; text-transform: uppercase;">Pfeffi Club</h1>
+    <p style="font-family: 'Special Elite', monospace; font-size: clamp(14px, 2vw, 19px); letter-spacing: 1px; max-width: 640px; margin: 0; text-transform: uppercase;">Gegründet 2019 in Ulm. Vereinigt im Zeichen des grünen Likörs.</p>
+    <div style="{{ stampStyle }}">Genehmigt</div>
+    <a href="#statut" style="margin-top: 26px; font-family: 'Special Elite', monospace; font-size: 13px; letter-spacing: 2px; text-decoration: none; color: #1C1B16; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+      <span>Weiter zum Statut</span>
+      <span aria-hidden="true" style="font-size: 20px;">▾</span>
+    </a>
+  </header>
+
+  <div style="height: 14px; background-image: radial-gradient(circle at 12px 0, transparent 7px, #F3ECDA 7px); background-size: 24px 14px; background-repeat: repeat-x;" aria-hidden="true"></div>
+
+  <section id="statut" data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; max-width: 760px; margin: 0 auto; padding: 90px 24px 70px;">
+    <div style="border: 3px double #00693A; padding: clamp(28px, 5vw, 56px); text-align: center; position: relative;">
+      <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 3px; color: #00693A; text-transform: uppercase; margin-bottom: 10px;">Statut § 1 — Präambel</div>
+      <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(28px, 5vw, 42px); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px; color: #1C1B16;">Über den Club</h2>
+      <p style="font-size: 17px; max-width: 56ch; margin: 0 auto 20px;">Gegründet im Jahre 2019 während des Studiums in Ulm, versammelt sich der Pfeffi Club seither zur Pflege kollektiver Freundschaft und des grünen Likörs Pfeffi. Höhepunkt des Vereinsjahres ist der Pfeffiausflug, dessen Ziel dem Zentralkomitee vorbehalten bleibt.</p>
+      <div style="display: inline-block; font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border: 2px solid #B3272D; color: #B3272D; padding: 5px 14px; transform: rotate(-4deg); mix-blend-mode: multiply;">Beschlossen</div>
+    </div>
+  </section>
+
+  <section id="kader" data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; padding: 70px 24px 90px; max-width: 1180px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 44px;">
+      <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 46px); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px; color: #00693A;">Das Kader</h2>
+      <p style="font-family: 'Special Elite', monospace; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; margin: 0;">Kaderakten der Mitglieder — Planerfüllung: 100% Pfeffi</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px;">
+      <sc-for list="{{ members }}" as="m" hint-placeholder-count="7">
+        <div style="background: #FBF8EF; border: 2px solid #1C1B16; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; position: relative; box-shadow: 5px 5px 0 rgba(0,105,58,0.25);">
+          <div style="position: absolute; top: 10px; right: 10px; font-family: 'Special Elite', monospace; font-size: 11px; color: #00693A;">Nr. {{ m.num }}</div>
+          <div style="width: 84px; height: 84px; border-radius: 50%; border: 3px solid #00693A; display: flex; align-items: center; justify-content: center; background: #F3ECDA;">
+            <svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true">
+              <circle cx="32" cy="22" r="14" fill="#00693A"></circle>
+              <path d="M8 58 C8 38 18 32 32 32 C46 32 56 38 56 58 Z" fill="#00693A"></path>
+            </svg>
+          </div>
+          <div style="font-family: 'Anton', sans-serif; font-size: 20px; letter-spacing: 0.5px; text-transform: uppercase; color: #1C1B16;">{{ m.name }}</div>
+          <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #00693A;">{{ m.rank }}</div>
+          <div style="font-family: 'Special Elite', monospace; font-size: 11px; letter-spacing: 1px; color: #6b6455;">Beigetreten {{ m.year }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="height: 14px; background-image: radial-gradient(circle at 12px 0, transparent 7px, #F3ECDA 7px); background-size: 24px 14px; background-repeat: repeat-x;" aria-hidden="true"></div>
+
+  <section id="chronik" data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; padding: 80px 24px 90px; max-width: 720px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 46px); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px; color: #00693A;">Chronik der Pfeffiausflüge</h2>
+      <p style="font-family: 'Special Elite', monospace; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; margin: 0;">Fünfjahresplan des Vereins</p>
+    </div>
+    <div style="position: relative; padding-left: 34px; border-left: 3px solid #00693A;">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
+        <div style="position: relative; padding-bottom: 40px;">
+          <div style="{{ t.dotStyle }}"></div>
+          <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px; color: #B3272D; text-transform: uppercase;">{{ t.year }}</div>
+          <div style="font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: 0.5px; text-transform: uppercase; color: #1C1B16;">{{ t.place }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="standorte" data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; padding: 80px 24px 100px; max-width: 980px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 44px;">
+      <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(30px, 5vw, 46px); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 8px; color: #00693A;">Bezirksdirektionen</h2>
+      <p style="font-family: 'Special Elite', monospace; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; margin: 0;">Außenstellen des Pfeffi Club im DACH-Raum</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+      <div style="background: #FBF8EF; border: 2px solid #1C1B16; box-shadow: 6px 6px 0 rgba(0,105,58,0.2);">
+        <img src="assets/map.svg" alt="Pfeffi Club Locations"
+             style="display: block; width: 100%; height: auto;" />
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">★ <strong>Zentrale</strong> — Börner-Bar, Ulm</li>
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">Außenstelle — Aichach</li>
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">Außenstelle — Eriskirch</li>
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">Außenstelle — Freiburg</li>
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">Außenstelle — Ulm (weitere Adresse)</li>
+        <li style="font-family: 'Special Elite', monospace; font-size: 15px; letter-spacing: 0.5px;">Außenstelle — Zürich</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer style="border-top: 3px solid #00693A; padding: 50px 24px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px;">
+    <img src="assets/logo.svg" alt="Pfeffi Club Wappen" style="width: 84px; height: auto;" />
+    <div style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #00693A;">Gegründet 2019</div>
+    <p style="font-family: 'Special Elite', monospace; font-size: 13px; max-width: 44ch; margin: 0;">Der Pfeffi Club dankt für Ihre Aufmerksamkeit. Vorwärts immer, Pfeffi nimmer leer.</p>
+    <nav style="font-family: 'Special Elite', monospace; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">
+      <a href="impressum.html" style="color: #00693A; text-decoration: underline; text-underline-offset: 3px;">Impressum</a>
+      <span style="color: #6b6455; margin: 0 8px;">·</span>
+      <a href="datenschutz.html" style="color: #00693A; text-decoration: underline; text-underline-offset: 3px;">Datenschutz</a>
+    </nav>
+    <p style="font-size: 11px; letter-spacing: 0.5px; color: #6b6455; margin: 0;">Privater Freundesclub — keine kommerzielle Website.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { stamped: false };
+
+  componentDidMount() {
+    this.reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.reduceMotion) {
+      this.setState({ stamped: true });
+    } else {
+      setTimeout(() => this.setState({ stamped: true }), 500);
+    }
+    if (this.root) {
+      const targets = this.root.querySelectorAll('[data-reveal]');
+      if (this.reduceMotion) {
+        targets.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      } else {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = '1';
+              e.target.style.transform = 'none';
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        targets.forEach(el => io.observe(el));
+      }
+    }
+  }
+
+  renderVals() {
+    const members = [
+      { name: 'Änn', num: '001', rank: 'Gründungsmitglied', year: '2019' },
+      { name: 'Jana', num: '002', rank: 'Gründungsmitglied', year: '2019' },
+      { name: 'Koksi', num: '003', rank: 'Gründungsmitglied', year: '2019' },
+      { name: 'Magnus', num: '004', rank: 'Gründungsmitglied', year: '2019' },
+      { name: 'Vinz', num: '005', rank: 'Gründungsmitglied', year: '2019' },
+      { name: 'Klaus', num: '006', rank: 'Mitglied', year: '2024' },
+      { name: 'Andi', num: '007', rank: 'Mitglied', year: '2025' },
+    ];
+
+    const dotStyle = 'position:absolute; left:-42px; top:4px; width:16px; height:16px; border-radius:50%; background:#00954A; border:3px solid #F3ECDA; box-shadow:0 0 0 2px #00693A;';
+    const timelineRaw = [
+      { year: '2022', place: 'Eriskirch' },
+      { year: '2023', place: 'Straßburg' },
+      { year: '2024', place: 'Freiburg' },
+      { year: '2025', place: 'Taubertal Festival' },
+      { year: '2026', place: 'Dublin' },
+    ];
+    const timeline = timelineRaw.map(t => ({ ...t, dotStyle }));
+
+    const locationsRaw = [
+      { label: '★ Zentrale — Ulm', x: 44, y: 34, main: true },
+      { label: 'Aichach', x: 64, y: 24 },
+      { label: 'Eriskirch', x: 34, y: 56 },
+      { label: 'Freiburg', x: 14, y: 48 },
+      { label: 'Ulm (Außenstelle)', x: 56, y: 52 },
+      { label: 'Zürich', x: 24, y: 76 },
+    ];
+    const locations = locationsRaw.map(l => ({
+      label: l.label,
+      pinStyle: `position:absolute; left:${l.x}%; top:${l.y}%; display:flex; align-items:center; gap:4px; transform:translate(-6px,-6px);`,
+      dotStyle: l.main
+        ? 'width:12px; height:12px; border-radius:2px; background:#B3272D; transform:rotate(45deg); flex-shrink:0;'
+        : 'width:9px; height:9px; border-radius:50%; background:#00693A; flex-shrink:0;',
+    }));
+
+    return {
+      setRootRef: (el) => { this.root = el; },
+      members,
+      timeline,
+      locations,
+      stampStyle: `display:inline-block; font-family:'Special Elite', monospace; font-size:15px; letter-spacing:3px; text-transform:uppercase; border:3px solid #B3272D; color:#B3272D; padding:8px 20px; transform:rotate(-10deg); mix-blend-mode:multiply; opacity:${this.state.stamped ? 1 : 0}; animation:${this.state.stamped ? 'stampBang .6s ease-out' : 'none'};`,
+    };
+  }
+}
+</script>
+</body>
+</html>
